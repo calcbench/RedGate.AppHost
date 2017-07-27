@@ -2,7 +2,7 @@
 {
     public class ChildProcessFactory
     {
-        public IChildProcessHandle Create(string assemblyName, bool openDebugConsole, bool is64Bit, bool monitorHostProcess)
+        public IChildProcessHandle Create(string assemblyName, bool openDebugConsole, bool is64Bit, bool monitorHostProcess, string executingDirectory = null)
         {
             IProcessStartOperation processStarter;
 
@@ -13,6 +13,11 @@
             else
             {
                 processStarter = new ProcessStarter32Bit();
+            }
+            
+            if (!string.IsNullOrEmpty(executingDirectory) )
+            {
+                processStarter.ExecutingDirectory = executingDirectory;
             }
 
             return new RemotedProcessBootstrapper(

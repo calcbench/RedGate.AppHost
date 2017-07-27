@@ -33,5 +33,17 @@ namespace RedGate.AppHost.Server
             if (!signal.WaitOne(s_TimeOut))
                 throw new ApplicationException("WPF child process didn't respond quickly enough");
         }
+
+        public string ExecutingDirectory
+        {
+            get
+            {
+                return null;
+            }
+            set
+            {
+
+            }
+        }
     }
 }

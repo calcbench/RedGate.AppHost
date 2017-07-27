@@ -7,13 +7,12 @@ namespace RedGate.AppHost.Server
     internal abstract class ProcessStarter : IProcessStartOperation
     {
         protected abstract string ProcessFileName { get; }
-
+        private string executingAssembly;
         public Process StartProcess(string assemblyName, string remotingId, bool openDebugConsole, bool monitorHostProcess)
         {
-            string executingDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string quotedAssemblyArg = "\"" + Path.Combine(executingDirectory, assemblyName) + "\"";
+            string quotedAssemblyArg = "\"" + Path.Combine(ExecutingDirectory, assemblyName) + "\"";
 
-            var processToStart = Path.Combine(executingDirectory, ProcessFileName);
+            var processToStart = Path.Combine(ExecutingDirectory, ProcessFileName);
             var processArguments = string.Join(" ", new[]
             {
                 "-i " + remotingId,
@@ -22,6 +21,25 @@ namespace RedGate.AppHost.Server
                 monitorHostProcess ? "-p " + Process.GetCurrentProcess().Id : string.Empty
             });
             return Process.Start(processToStart, processArguments);
+        }
+        
+        public string ExecutingDirectory
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(executingAssembly))
+                {
+                    return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                }
+                else
+                {
+                    return executingAssembly;
+                }
+            }
+            set
+            {
+                executingAssembly = value;
+            }
         }
     }
 }

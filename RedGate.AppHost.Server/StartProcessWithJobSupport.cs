@@ -24,5 +24,17 @@ namespace RedGate.AppHost.Server
 
             return process;
         }
+
+        public string ExecutingDirectory
+        {
+            get
+            {
+                return null;
+            }
+            set
+            {
+
+            }
+        }
     }
 }
