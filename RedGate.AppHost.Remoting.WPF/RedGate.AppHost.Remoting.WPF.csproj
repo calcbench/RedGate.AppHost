@@ -11,7 +11,7 @@
     <AssemblyName>RedGate.AppHost.Remoting.WPF</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>\\red-gate.com\Files\RG_Build_Key\RedGate.snk</AssemblyOriginatorKeyFile>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -35,7 +35,8 @@
   </PropertyGroup>
   <!-- Don't try to sign if it's built inside visual studio, there's probably no point -->
   <PropertyGroup Condition="'$(BuildingInsideVisualStudio)' == ''">
-    <RedGate_DontObfuscate>true</RedGate_DontObfuscate> <!-- Need to set this to tell signing task where to look for assembly -->
+    <RedGate_DontObfuscate>true</RedGate_DontObfuscate>
+    <!-- Need to set this to tell signing task where to look for assembly -->
     <RedGate_DoSign>true</RedGate_DoSign>
   </PropertyGroup>
   <ItemGroup>
@@ -62,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RedGate.AppHost.Interfaces\RedGate.AppHost.Interfaces.csproj">
-      <Project>{3084D987-50DD-43A5-9CF3-CE550513F8D0}</Project>
+      <Project>{3084d987-50dd-43a5-9cf3-ce550513f8d0}</Project>
       <Name>RedGate.AppHost.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
