@@ -2,7 +2,13 @@
 {
     public class ChildProcessFactory
     {
-        public IChildProcessHandle Create(string assemblyName, bool openDebugConsole, bool is64Bit, bool monitorHostProcess, string executingDirectory = null)
+        public IChildProcessHandle Create(
+            string assemblyName, 
+            bool openDebugConsole, 
+            bool is64Bit, 
+            bool monitorHostProcess, 
+            string executingDirectory = null
+            )
         {
             IProcessStartOperation processStarter;
 
