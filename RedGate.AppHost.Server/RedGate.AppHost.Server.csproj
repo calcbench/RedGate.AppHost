@@ -71,14 +71,6 @@
     <Compile Include="StartProcessWithJobSupport.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RedGate.AppHost.Interfaces\RedGate.AppHost.Interfaces.csproj">
-      <Project>{3084d987-50dd-43a5-9cf3-ce550513f8d0}</Project>
-      <Name>RedGate.AppHost.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RedGate.AppHost.Remoting.WPF\RedGate.AppHost.Remoting.WPF.csproj">
-      <Project>{24e71c6d-17cb-4d61-a092-ef1a37f7cd70}</Project>
-      <Name>RedGate.AppHost.Remoting.WPF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RedGate.AppHost.Remoting\RedGate.AppHost.Remoting.csproj">
       <Project>{b26aa798-4734-434a-9875-7e9000ed24f5}</Project>
       <Name>RedGate.AppHost.Remoting</Name>
