@@ -20,9 +20,7 @@ namespace RedGate.AppHost.Client
             var options = new Options();
             if (Parser.Default.ParseArguments(args, options))
             {
-#if DEBUG
-                options.Debug = true;
-#endif
+
                 if (options.Debug)
                 {
                     ConsoleNativeMethods.AllocConsole();
