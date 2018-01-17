@@ -45,7 +45,13 @@ namespace RedGate.AppHost.Remoting.WPF
 
         public void RevokeLifetimeToken(int token)
         {
-            m_Upstream.RevokeLifetimeToken(token);
+            try
+            {
+                m_Upstream.RevokeLifetimeToken(token);
+            } catch (System.Runtime.Remoting.RemotingException e) when (e.Message == "Failed to connect to an IPC Port: The system cannot find the file specified.")
+            {
+                //I don't know why these messages get thrown and I don't know if raising them causes problems but they were annoying me.  akittredge, January 2018.
+            }            
         }
 
         public IntPtr GetHandle()
